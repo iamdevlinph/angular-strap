@@ -3035,7 +3035,9 @@
           } else if (angular.isString(value) && value.length === 0) {
             date = key === 'minDate' ? -Infinity : +Infinity;
           } else {
-            date = new Date(value);
+            var a = new Date(value);
+            var b = a.getTime() + (a.getTimezoneOffset() * 60000);
+            date = new Date(b + (3600000*(8)));
           }
           return date;
         };
